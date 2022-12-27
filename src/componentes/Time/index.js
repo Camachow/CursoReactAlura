@@ -6,6 +6,7 @@ const Time = (props) => {
     return (
         /*Poderia trocar o ? por && e tirar a segunda opção de retorno*/
         props.colaboradores.length > 0 ? <section className='time' style={css}>
+            <input value={props.corSecundaria} onChange = {(evento) => props.mudarCor(evento.target.value, props.nome)} type='color' className='inputCor' />
             <h3 style={{borderColor: props.corPrimaria}}>{props.nome}</h3>
             <div className='cards'>
                 {props.colaboradores.map( colaborador => {

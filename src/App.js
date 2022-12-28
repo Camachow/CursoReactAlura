@@ -236,10 +236,18 @@ function App() {
     }))
   }
 
+  const cadastrarTime = (novoTime) => {
+    setTimes([...times, {...novoTime, id: uuidv4()}])
+  }
+
   return (
     <div className="App">
       <Banner />
-      <Formulario times={times.map(time => time.nome)} aoColaboradorCadastrado={colaborador => aoNovoColaborador(colaborador)} />
+      <Formulario
+        cadastrarTime={cadastrarTime}
+        times={times.map(time => time.nome)}
+        aoColaboradorCadastrado={colaborador => aoNovoColaborador(colaborador)}
+        />
       <section className='times'>
         <h1>Minha Organização</h1>
         {/*Para cada time da lista cria um componente com o nome dele*/}

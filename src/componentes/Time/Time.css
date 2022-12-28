@@ -1,4 +1,5 @@
 .time {
+    background-color: black;
     position: relative;
     background-image: url('/public/imagens/fundo.png');
     text-align: center;

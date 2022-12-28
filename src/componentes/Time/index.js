@@ -2,7 +2,7 @@ import Card from '../Card'
 import './Time.css'
 import hexToRgba from 'hex-to-rgba'
 
-const Time = ({time, colaboradores, aoDeletar, mudarCor}) => {
+const Time = ({time, colaboradores, aoDeletar, aoFavoritar, mudarCor}) => {
     const css = { backgroundColor: hexToRgba(time.cor, '0.6'),}
     return (
         /*Poderia trocar o ? por && e tirar a segunda opção de retorno*/
@@ -11,7 +11,19 @@ const Time = ({time, colaboradores, aoDeletar, mudarCor}) => {
             <h3 style={{borderColor: time.cor}}>{time.nome}</h3>
             <div className='cards'>
                 {colaboradores.map( colaborador => {
-                    return <Card key={colaborador.id} id={colaborador.id} nome={colaborador.nome} cargo={colaborador.cargo} imagem = {colaborador.imagem} cor={time.cor} aoDeletar={aoDeletar}/>
+                    return (
+                        <Card
+                            key={colaborador.id}
+                            id={colaborador.id}
+                            favorito={colaborador.favorito}
+                            nome={colaborador.nome}
+                            cargo={colaborador.cargo}
+                            imagem = {colaborador.imagem}
+                            cor={time.cor}
+                            aoDeletar={aoDeletar}
+                            aoFavoritar={aoFavoritar}
+                        />
+                    )
                 })}
             </div>
         </section>
